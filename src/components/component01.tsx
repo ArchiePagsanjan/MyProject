@@ -1,22 +1,37 @@
 import image01 from '../assets/component-01/Image-01.jpg';
 import image02 from '../assets/component-01/Image-02.jpg';
 import image03 from '../assets/component-01/Image-03.jpg';
-
+import { onClick } from './actions';
 function FirstComponent() {
 
   return (
     <>
       <div className='flex flex-col items-center md:flex-row gap-5 -mx-4'>
         <div>
-            <a href="" target="_blank">
+            <a href="" target="_blank" 
+                onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                    e.preventDefault();
+                    const imgElement = e.currentTarget.querySelector('img') as HTMLImageElement; // Type assertion
+                    onClick(imgElement);
+                }}>
             <img src={image01} className="transition-transform transform hover:scale-110 duration-300 ease-in-out" alt="Vite logo" />
             </a>
         </div>
         <div className=' flex flex-col gap-5'>
-            <a href="" target="_blank">
+            <a href="" target="_blank" 
+                onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                    e.preventDefault();
+                    const imgElement = e.currentTarget.querySelector('img') as HTMLImageElement; // Type assertion
+                    onClick(imgElement);
+                }}>
             <img src={image02} className="transition-transform transform hover:scale-110 duration-300 ease-in-out" alt="React logo" />
             </a>
-            <a href="" target="_blank">
+            <a href="" target="_blank"
+                onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                    e.preventDefault();
+                    const imgElement = e.currentTarget.querySelector('img') as HTMLImageElement; // Type assertion
+                    onClick(imgElement);
+                }}>
             <img src={image03} className="transition-transform transform hover:scale-110 duration-300 ease-in-out" alt="React logo" />
             </a>
         </div>

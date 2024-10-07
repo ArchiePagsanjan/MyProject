@@ -1,6 +1,7 @@
 import image01 from '../assets/component-02/Image-01.jpg';
 import image02 from '../assets/component-02/Image-02.jpg';
 import image03 from '../assets/component-02/Image-03.jpg';
+import { onClick } from './actions';
 
 interface Card{
     img: string,
@@ -36,7 +37,12 @@ function SecondComponent() {
             return(
                 <div className='text-left'>
                     <div className='mb-6'>
-                        <a href="" target="_blank">
+                        <a href="" target="_blank"
+                            onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                                e.preventDefault();
+                                const imgElement = e.currentTarget.querySelector('img') as HTMLImageElement; // Type assertion
+                                onClick(imgElement);
+                            }}>
                         <img src={card.img} className="border-b-4 border-red-900 transition-transform transform hover:scale-110 duration-300 ease-in-out" alt={card.title} />
                         </a>
                     </div>
